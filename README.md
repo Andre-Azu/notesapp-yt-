@@ -6,4 +6,6 @@
 
 # Bring in the the html pages
 
-# Create the Sign up form
+# Create the Sign up and log in form
+
+# Making log in and sign up to accept post requests.
