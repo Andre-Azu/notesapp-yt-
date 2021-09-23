@@ -1,14 +1,23 @@
 {% extends "base.html" %}
 {% block title %} Login page {% endblock %}
 
-{% block content %}
-<h1>Login</h1>
-{{text +"aha?"}}
 
-<!-- Writing if statements -->
-{% if boolean == true%}
-Welcome Kijana
-{% else %}
-Wacha Ujinga kijanaa
-{% endif %}
+{% block content %}
+
+
+
+<form method="POST">
+<!-- method "post" sends data to the back-end -->
+    <h3 align="center"> Login!</h3>
+    <div class="form-group">
+        <label for="email">Email Address:</label>
+        <input type="email" class="form-control" id="email" name="email" placeholder="Enter Email">
+        <!-- the "name" in the above code is what becomes an attribute in the backend -->
+        <label for="password">Enter Password:</label>
+        <input type="password" class="form-control" id="password" name="password" placeholder="Enter password">
+    </div>
+    <br>
+    <button type="submit" class="btn-outline-primary" > Submit</button>
+
+</form>
 {% endblock %}
