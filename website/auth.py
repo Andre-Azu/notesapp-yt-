@@ -19,7 +19,7 @@ def sign_up():
         password1=request.form.get('password1')
         password2=request.form.get('password2')
 
-        # add validations
+        # add validations/flash messages 
 
         if len("email")<2:
             flash("email must be greater than two characters",category='Success')
