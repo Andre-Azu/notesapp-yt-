@@ -12,3 +12,5 @@
     making the flash messages
 
 # Bringing in the database
+
+# creating the database

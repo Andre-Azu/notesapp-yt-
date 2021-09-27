@@ -2,6 +2,9 @@ from flask import Flask
 #set up database
 from flask_sqlalchemy import SQLAlchemy
 
+#this path module determines whether the databse does or doesnt exist
+from os import path
+
 #define new database object(gonna be used whenever we wanna add a user or basically anything)
 db=SQLAlchemy()
 #pick the database name
@@ -27,5 +30,15 @@ def create_app():
     app.register_blueprint(auth,url_prefix='/')
 
 
+    #ensures the system checks for these two tables are present
+    from .models import User,Note
+
+
 
     return app
+
+# creating a database just in case one doesnt exist
+def create_database(app):
+    if not path.exists('website/'+ DB_NAME):
+        db.create_all(app=app)
+        print("Created Database!!")
