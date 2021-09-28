@@ -5,6 +5,8 @@ from flask_sqlalchemy import SQLAlchemy
 #this path module determines whether the databse does or doesnt exist
 from os import path
 
+from flask_login import LoginManager
+
 #define new database object(gonna be used whenever we wanna add a user or basically anything)
 db=SQLAlchemy()
 #pick the database name
@@ -34,6 +36,15 @@ def create_app():
     from .models import User,Note
 
     create_database(app)
+
+    login_manager=LoginManager()
+    login_manager.login_view='auth.login'
+    login_manager.init_app(app)
+
+    @login_manager.user_loader
+    def load_user(id):
+        return User.query.get(int(id))
+
 
     return app
 

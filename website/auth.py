@@ -4,6 +4,8 @@ from flask import Blueprint,render_template,request,flash,redirect,url_for
 from .models import User
 from werkzeug.security import check_password_hash,generate_password_hash
 from . import db
+from flask_login import login_required,login_user,logout_user,current_user
+# current user, holds the data on the current user.
 
 
 auth = Blueprint('auth',__name__) 
@@ -19,6 +21,8 @@ def login():
         if user:
             if check_password_hash(user.password, password):
                 flash("logged in succesfully", category='success')
+                login_user(user, remember=True)
+                #remember true ensures the user remains logged in as long as the server is still running
                 return redirect(url_for('views.home'))  
             else:
                 flash("incorrect password, try again", category='error')
@@ -27,8 +31,11 @@ def login():
     return render_template("login.html", text="Welcome back ", boolean=True)
 
 @auth.route('/logout')
+@login_required
+# @login_required decorator ensures that the user was alreaady logged in so as to be logged out later.
 def logout():
-    return render_template("home.html")
+    logout_user()
+    return redirect(url_for('auth.login'))
 
 @auth.route('/sign-up', methods=['GET','POST'])
 def sign_up():
@@ -56,6 +63,7 @@ def sign_up():
             new_user=User(email=email,password=generate_password_hash(password1, method='sha256'),first_name=first_name)
             db.session.add(new_user)
             db.session.commit()
+            login_user(user, remember=True)
             #add user to database
             flash('account created',category='success')
             #to redirect the user to the homepage of the website, 
