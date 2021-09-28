@@ -22,4 +22,6 @@
 # Using the Flask log in
 
 # making the navbar more relatable
-    rmovingthe logout pannel from the navbar and placing it where necessary
+    moving the logout pannel from the navbar and placing it where necessary
+
+# Adding the notes
