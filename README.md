@@ -25,3 +25,5 @@
     moving the logout pannel from the navbar and placing it where necessary
 
 # Adding the notes
+
+# Allowing the app to recieve notes posted
