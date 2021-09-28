@@ -33,7 +33,7 @@ def create_app():
     #ensures the system checks for these two tables are present
     from .models import User,Note
 
-
+    create_database(app)
 
     return app
 
