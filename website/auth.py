@@ -28,7 +28,7 @@ def login():
                 flash("incorrect password, try again", category='error')
         else:
             flash("account does not exist.", category='error')
-    return render_template("login.html", text="Welcome back ", boolean=True)
+    return render_template("login.html", text="Welcome back ", user=current_user)
 
 @auth.route('/logout')
 @login_required
@@ -70,4 +70,4 @@ def sign_up():
             return redirect(url_for('views.home'))
 
 
-    return render_template("sign_up.html" ,text="Hello new user :)") 
+    return render_template("sign_up.html" ,text="Hello new user :)", user=current_user) 

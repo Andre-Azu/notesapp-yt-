@@ -20,3 +20,6 @@
 # Logging in users
 
 # Using the Flask log in
+
+# making the navbar more relatable
+    rmovingthe logout pannel from the navbar and placing it where necessary
