@@ -1,29 +1,8 @@
-# Create the initial app
+## About app 
+The app records your notes then stores them.
 
-# Create website routes
+# To run the app 
 
-# Create login & logout
-
-# Bring in the the html pages
-
-# Create the Sign up and log in form
-
-# Making log in and sign up to accept post requests.
-    making the flash messages
-
-# Bringing in the database
-
-# creating the database
-
-# creating user accounts
-
-# Logging in users
-
-# Using the Flask log in
-
-# making the navbar more relatable
-    moving the logout pannel from the navbar and placing it where necessary
-
-# Adding the notes
-
-# Allowing the app to recieve notes posted
+1. Pull the repository 
+2. Install the requirements.txt
+3. run the app 'python main.py'
